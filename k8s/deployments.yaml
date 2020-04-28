@@ -16,7 +16,7 @@ spec:
       containers:
       - name: tornado-gke
         # Replace $GCLOUD_PROJECT with your project ID
-        image: gcr.io/multi-k8s-123123/helloworld-gke:latest
+        image: pushpendumanna/tornado-k8s:latest
         # This app listens on port 8080 for web traffic by default.
         ports:
         - containerPort: 8080
