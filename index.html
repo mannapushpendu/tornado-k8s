@@ -17,7 +17,7 @@
         const addFruit = document.getElementById("btnAdd")
         const txtFruit = document.getElementById("txtFruit")
        
-        fetch("http://localhost:8882/list")
+        fetch("http://localhost:8080/list")
         .then(response => response.json())
         .then(jsonResponse => jsonResponse.forEach(fruit => {
 
@@ -30,7 +30,7 @@
 
         addFruit.addEventListener("click", e => {
                 let fruit = txtFruit.value;
-                fetch(`http://localhost:8882/list?fruit=${fruit}`, {"method" : "POST"})
+                fetch(`http://localhost:8080/list?fruit=${fruit}`, {"method" : "POST"})
                 .then(response => response.json())
                 .then(jsonResponse => alert(jsonResponse.message))
 
