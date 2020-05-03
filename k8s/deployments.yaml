@@ -13,13 +13,20 @@ spec:
       labels:
         app: tornado
     spec:
+      terminationGracePeriodSeconds: 20 
       containers:
       - name: tornado-gke
         # Replace $GCLOUD_PROJECT with your project ID
-        image: pushpendumanna/tornado-k8s:latest
+        image: gcr.io/wimt-sandbox/pushpendu-tornado:latest
+        imagePullPolicy: Always
         # This app listens on port 8080 for web traffic by default.
         ports:
         - containerPort: 8080
         env:
           - name: PORT
             value: "8080"
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                    name: pushpendu-db-secret
+                    key: POSTGRES_PASSWORD
